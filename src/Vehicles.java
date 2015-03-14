@@ -1,5 +1,5 @@
 
-public class Vehicles {
+public class Vehicles implements Comparable<Vehicles> {
 
 	private String vehicleName;
 	private String sIPP;
@@ -9,6 +9,7 @@ public class Vehicles {
 	
 	/* Default Constructor*/
 	public Vehicles(){
+		super();
 		vehicleName = "";
 		sIPP = "";
 		price = 0.0;
@@ -18,6 +19,7 @@ public class Vehicles {
 	
 	public Vehicles(String vehicleName, String sIPP, double price, String supplier
 			,double rating){
+		super();
 		setVehicleName(vehicleName);
 		setsIPP(sIPP);
 		setPrice(price);
@@ -73,5 +75,12 @@ public class Vehicles {
 
 	public void setRating(double rating) {
 		this.rating = rating;
+	}
+
+	@Override
+	public int compareTo(Vehicles v) {
+		
+		int comparePrice = (int) ((Vehicles) v).getPrice();
+		return (int) (this.price - comparePrice);
 	}
 }

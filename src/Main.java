@@ -20,7 +20,6 @@ public class Main {
 		try {
 			url = new URL("http://www.rentalcars.com/js/vehicles.json");
 
-		
         //String url = "http://www.rentalcars.com/js/vehicles.json";
         String genreJson = IOUtils.toString(url);
         JSONObject obj = new JSONObject(genreJson);
