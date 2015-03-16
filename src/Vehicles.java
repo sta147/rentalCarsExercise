@@ -8,6 +8,7 @@ public class Vehicles implements Comparable<Vehicles> {
 	private double rating;
 	
 	/* Default Constructor*/
+	
 	public Vehicles(){
 		super();
 		vehicleName = "";
