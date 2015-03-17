@@ -55,7 +55,7 @@ public class Main {
 		} catch (IOException e3) {
 			e3.printStackTrace();
 		}
-		//Arrays.sort(a, Collections.reverseOrder());
+		
 		
 		/** Here we sort the array in ascending price order */
 		Collections.sort(b, new Comparator<Vehicles>() {
@@ -72,10 +72,13 @@ public class Main {
 		}
 		/* Converts the sipp into vehicle specifications */
 		for (Vehicles vehicle : b) {
+			// calculates the specs for each vehicle.
 			vehicle.getSpecs();
+			// calculates the SumofScore for each vehicle.
+			vehicle.calculateScore();
 		}
 		
-		System.out.println("******* list of all the cars, in ascending price order ********\n");
+		System.out.println("\n**** list of all the cars, with Specifications calculated ****\n");
 		/** This prints all the cars in ascending price order.*/
 		for (Vehicles vehicle : b) {
 			System.out.print(vehicle.getVehicleName()+" - ");
@@ -91,6 +94,34 @@ public class Main {
 				System.out.println("AC");
 			}
 		}
+		
+		/** Here we sort the array in descending order of highest rated supplier,
+		 * 	per car type. */
+		Collections.sort(b, new Comparator<Vehicles>() {
+		    @Override
+		    public int compare(Vehicles c1, Vehicles c2) {
+		        return Double.compare(c2.getRating(), c1.getRating());
+		    }
+		});
+		
+		System.out.println("\n******* Highest rated cars in descending order. ********\n");
+		/** This prints all the cars in ascending price order.*/
+		for (Vehicles vehicle : b) {
+			System.out.print(vehicle.getVehicleName()+" - ");
+			System.out.print(vehicle.getCarType()+" - ");
+			System.out.print(vehicle.getSupplier()+" - ");
+			System.out.println(vehicle.getRating()+"");
+		}
+		
+		/** Here we sort the array in descending order of highest rated supplier,
+		 * 	per car type. */
+		Collections.sort(b, new Comparator<Vehicles>() {
+		    @Override
+		    public int compare(Vehicles c1, Vehicles c2) {
+		        return Double.compare(c2.getRating(), c1.getRating());
+		    }
+		});
+		
 	}
 
 }

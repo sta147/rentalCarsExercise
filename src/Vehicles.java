@@ -1,5 +1,5 @@
 
-public class Vehicles /*implements Comparable<Vehicles>*/ {
+public class Vehicles {
 
 	private String vehicleName;
 	private String sIPP;
@@ -8,6 +8,7 @@ public class Vehicles /*implements Comparable<Vehicles>*/ {
 	private double rating;
 	private String carType, carTypeDoors, transmission, fuel;
 	private boolean airCon;
+	private double score;
 	
 	private enum List1{
 		M ("Mini"),
@@ -126,6 +127,7 @@ public class Vehicles /*implements Comparable<Vehicles>*/ {
 		transmission = "";
 		fuel = "";
 		airCon = false;
+		setScore(0);
 		
 	}
 	
@@ -142,9 +144,10 @@ public class Vehicles /*implements Comparable<Vehicles>*/ {
 		transmission = "";
 		fuel = "";
 		airCon = false;
+		setScore(0);
 	}
 	
-	public void getSpecs() throws ArrayIndexOutOfBoundsException{
+	public void getSpecs(){
 		String char1 = String.valueOf(sIPP.charAt(0));
 		String char2 = String.valueOf(sIPP.charAt(1));
 		String char3 = String.valueOf(sIPP.charAt(2));
@@ -176,6 +179,22 @@ public class Vehicles /*implements Comparable<Vehicles>*/ {
 
 		}
 		
+	} 
+	
+	public void calculateScore(){
+		//if manual transmission 1 point
+		//if auto transmission 2 points
+		//if air conditioned 2 points
+		score += rating;
+		if (getTransmission().toLowerCase().contains("automatic")){
+			score += 2;
+		}
+		else{
+			score += 1;
+		}
+		if (isAirCon()==true){
+			score += 2;;
+		}
 	}
 
 	public String getVehicleName() {
@@ -264,5 +283,13 @@ public class Vehicles /*implements Comparable<Vehicles>*/ {
 
 	private void setTransmission(String transmission) {
 		this.transmission = transmission;
+	}
+
+	public double getScore() {
+		return score;
+	}
+
+	public void setScore(double score) {
+		this.score = score;
 	}
 }
