@@ -39,13 +39,9 @@ public class Main {
             String sipp = arr.getJSONObject(i).getString("sipp");
             //System.out.println("sipp: "+sipp);
             double price = arr.getJSONObject(i).getDouble("price");
-            //System.out.println("price: "+price);
             String supplier = arr.getJSONObject(i).getString("supplier");
-            //System.out.println("supplier: "+supplier);
             String name = arr.getJSONObject(i).getString("name");
-            //System.out.println("name: "+name);
             double rating = arr.getJSONObject(i).getDouble("rating");
-            //System.out.println("rating: "+rating);
             
             /** After we have retrieved data from the JSON vehicle Object, we use the data
              * to create a new Vehicle object and add it to a List. */
@@ -53,13 +49,10 @@ public class Main {
         }
         
 		} catch (MalformedURLException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}catch (JSONException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		} catch (IOException e3) {
-			// TODO Auto-generated catch block
 			e3.printStackTrace();
 		}
 		//Arrays.sort(a, Collections.reverseOrder());
@@ -71,17 +64,24 @@ public class Main {
 		        return Double.compare(c1.getPrice(), c2.getPrice());
 		    }
 		});
-
+		System.out.println("******* list of all the cars, in ascending price order ********\n");
 		/** This prints all the cars in ascending price order.*/
 		for (Vehicles vehicle : b) {
-			System.out.print(vehicle.getVehicleName()+", ");
-			System.out.println(vehicle.getPrice()+", ");
-			//System.out.print(vehicle.getSupplier()+", ");
-			//System.out.print(vehicle.getsIPP()+", ");
-			//System.out.println(vehicle.getRating()+".");
+			System.out.print(vehicle.getVehicleName()+" - ");
+			System.out.println(vehicle.getPrice());
+		}
+		/* Converts the sipp into vehicle specifications */
+		for (Vehicles vehicle : b) {
+			System.out.print(vehicle.getVehicleName()+" - ");
+			System.out.println(vehicle.getPrice());
 		}
 		
-		
+		System.out.println("******* list of all the cars, in ascending price order ********\n");
+		/** This prints all the cars in ascending price order.*/
+		for (Vehicles vehicle : b) {
+			System.out.print(vehicle.getVehicleName()+" - ");
+			System.out.println(vehicle.getPrice());
+		}
 	}
 
 }
