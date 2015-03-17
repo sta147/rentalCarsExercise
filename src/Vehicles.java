@@ -51,6 +51,13 @@ public class Vehicles /*implements Comparable<Vehicles>*/ {
 		private List2(String s) {
 	        name = s;
 	    }
+		List2(){
+			name=null;
+		}
+		@Override
+		public String toString(){
+		   return name;
+		}
 		public static boolean contains(String s)
 		{
 			for(List2 choice:values())
@@ -60,12 +67,19 @@ public class Vehicles /*implements Comparable<Vehicles>*/ {
 		} 
 	}
 	private enum List3{
-		M ("MAnual"),
+		M ("Manual"),
 		A ("Automatic");
 		private final String name;   
 		private List3(String s) {
 	        name = s;
 	    }
+		List3(){
+			name=null;
+		}
+		@Override
+		public String toString(){
+		   return name;
+		}
 		public static boolean contains(String s)
 		{
 			for(List3 choice:values())
@@ -81,6 +95,13 @@ public class Vehicles /*implements Comparable<Vehicles>*/ {
 		private List4(String s) {
 	        name = s;
 	    }
+		List4(){
+			name=null;
+		}
+		@Override
+		public String toString(){
+		   return name;
+		}
 		public static boolean contains(String s)
 		{
 			for(List4 choice:values())
@@ -123,7 +144,7 @@ public class Vehicles /*implements Comparable<Vehicles>*/ {
 		airCon = false;
 	}
 	
-	public void getSpecs(){
+	public void getSpecs() throws ArrayIndexOutOfBoundsException{
 		String char1 = String.valueOf(sIPP.charAt(0));
 		String char2 = String.valueOf(sIPP.charAt(1));
 		String char3 = String.valueOf(sIPP.charAt(2));
@@ -142,13 +163,17 @@ public class Vehicles /*implements Comparable<Vehicles>*/ {
 		}
 		if(List4.contains(char4)){
 			String[] spec4And5 = List4.valueOf(char4).toString().split("/");
+			
 			String spec4 = spec4And5[0]; 
 			String spec5 = spec4And5[1];
 			setFuel(spec4);
-			if(spec5.equalsIgnoreCase("no"))
-				setAirCon(false);
-			else
-				setAirCon(true);
+			if(spec5.contains("no AC")){
+				setAirCon(false);	
+			}
+			else{
+				setAirCon(true);				
+			}
+
 		}
 		
 	}

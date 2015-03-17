@@ -72,15 +72,24 @@ public class Main {
 		}
 		/* Converts the sipp into vehicle specifications */
 		for (Vehicles vehicle : b) {
-			System.out.print(vehicle.getVehicleName()+" - ");
-			System.out.println(vehicle.getPrice());
+			vehicle.getSpecs();
 		}
 		
 		System.out.println("******* list of all the cars, in ascending price order ********\n");
 		/** This prints all the cars in ascending price order.*/
 		for (Vehicles vehicle : b) {
 			System.out.print(vehicle.getVehicleName()+" - ");
-			System.out.println(vehicle.getPrice());
+			System.out.print(vehicle.getsIPP()+" - ");
+			System.out.print(vehicle.getCarType()+" - ");
+			System.out.print(vehicle.getCarTypeDoors()+" - ");
+			System.out.print(vehicle.getTransmission()+" - ");
+			System.out.print(vehicle.getFuel()+" - ");
+			if(vehicle.isAirCon() == false){
+				System.out.println("no AC - ");
+			}
+			else{
+				System.out.println("AC");
+			}
 		}
 	}
 
