@@ -74,7 +74,7 @@ public class Main {
 		for (Vehicles vehicle : b) {
 			// calculates the specs for each vehicle.
 			vehicle.getSpecs();
-			// calculates the SumofScore for each vehicle.
+			// calculates the Sum of scores for each vehicle.
 			vehicle.calculateScore();
 		}
 		
@@ -88,7 +88,7 @@ public class Main {
 			System.out.print(vehicle.getTransmission()+" - ");
 			System.out.print(vehicle.getFuel()+" - ");
 			if(vehicle.isAirCon() == false){
-				System.out.println("no AC - ");
+				System.out.println("no AC");
 			}
 			else{
 				System.out.println("AC");
@@ -110,17 +110,24 @@ public class Main {
 			System.out.print(vehicle.getVehicleName()+" - ");
 			System.out.print(vehicle.getCarType()+" - ");
 			System.out.print(vehicle.getSupplier()+" - ");
-			System.out.println(vehicle.getRating()+"");
+			System.out.println(vehicle.getRating());
 		}
 		
-		/** Here we sort the array in descending order of highest rated supplier,
-		 * 	per car type. */
+		/** Here we sort the array in descending order of highest sum of scores. */
 		Collections.sort(b, new Comparator<Vehicles>() {
 		    @Override
 		    public int compare(Vehicles c1, Vehicles c2) {
-		        return Double.compare(c2.getRating(), c1.getRating());
+		        return Double.compare(c2.getScore(), c1.getScore());
 		    }
 		});
+		System.out.println("\n******* Cars with  Highest sum of scores in descending order. ********\n");
+		/** This prints all the cars in ascending price order.*/
+		for (Vehicles vehicle : b) {
+			System.out.print(vehicle.getVehicleName()+" - ");
+			System.out.print(vehicle.getScore()+" - ");
+			System.out.print(vehicle.getRating()+" - ");
+			System.out.println(vehicle.getSumOfScores());
+		}
 		
 	}
 

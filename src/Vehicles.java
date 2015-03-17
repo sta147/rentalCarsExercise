@@ -9,6 +9,7 @@ public class Vehicles {
 	private String carType, carTypeDoors, transmission, fuel;
 	private boolean airCon;
 	private double score;
+	private double sumOfScores;
 	
 	private enum List1{
 		M ("Mini"),
@@ -128,6 +129,7 @@ public class Vehicles {
 		fuel = "";
 		airCon = false;
 		setScore(0);
+		setSumOfScores(0);
 		
 	}
 	
@@ -145,8 +147,13 @@ public class Vehicles {
 		fuel = "";
 		airCon = false;
 		setScore(0);
+		setSumOfScores(0);
 	}
 	
+	
+	/**
+	 * Calculates the specifications of each vehicle based on the the sipp code provided.
+	 */
 	public void getSpecs(){
 		String char1 = String.valueOf(sIPP.charAt(0));
 		String char2 = String.valueOf(sIPP.charAt(1));
@@ -181,19 +188,26 @@ public class Vehicles {
 		
 	} 
 	
+	/**
+	 * Calculates the score for each vehicle object and the sum of scores for the
+	 * Vehicle score and the Supplier's score.
+	 */
 	public void calculateScore(){
 		//if manual transmission 1 point
 		//if auto transmission 2 points
 		//if air conditioned 2 points
-		score += rating;
+		sumOfScores += rating;
 		if (getTransmission().toLowerCase().contains("automatic")){
-			score += 2;
+			score += 5;
+			sumOfScores += 5;
 		}
 		else{
 			score += 1;
+			sumOfScores += 1;
 		}
 		if (isAirCon()==true){
-			score += 2;;
+			score += 2;
+			sumOfScores += 2;
 		}
 	}
 
@@ -205,41 +219,33 @@ public class Vehicles {
 		this.vehicleName = vehicleName;
 	}
 
-
 	public String getsIPP() {
 		return sIPP;
 	}
-
 
 	private void setsIPP(String sIPP) {
 		this.sIPP = sIPP;
 	}
 
-
 	public double getPrice() {
 		return price;
 	}
-
 
 	private void setPrice(double price) {
 		this.price = price;
 	}
 
-
 	public String getSupplier() {
 		return supplier;
 	}
-
 
 	private void setSupplier(String supplier) {
 		this.supplier = supplier;
 	}
 
-
 	public double getRating() {
 		return rating;
 	}
-
 
 	private void setRating(double rating) {
 		this.rating = rating;
@@ -291,5 +297,13 @@ public class Vehicles {
 
 	public void setScore(double score) {
 		this.score = score;
+	}
+
+	public double getSumOfScores() {
+		return sumOfScores;
+	}
+
+	public void setSumOfScores(double sumOfScores) {
+		this.sumOfScores = sumOfScores;
 	}
 }
