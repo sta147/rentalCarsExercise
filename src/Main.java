@@ -1,3 +1,11 @@
+/**
+ * Main class for handling the system which Parses the JSON object and calls the Vehicles class to implement an
+ * ArrayList of Vehicles Objects.
+ * 
+ * @author Saqib Kayani
+ *
+ */
+
 import java.net.URL;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -12,13 +20,6 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 
 
-/**
- * Main class for handling the system which Parses the JSON object and calls the Vehicles class to implement an
- * ArrayList of Vehicles Objects.
- * 
- * @author Saqib Kayani
- *
- */
 public class Main {
 
 	/**
