@@ -1,4 +1,17 @@
 
+/**
+ * This class holds all the data required to store the values for the JSON object retrieved from RentalCars.com.
+ * We have four lists of enums, (Which are Java's implementation of Singleton design patterns) which each store a
+ * value for the table of sipp codes, based on each of the four SIPP codes provided by the JSON web API retrieved
+ * from RentalCars.com.
+ * 
+ * There are also some very basic calculations which have been carried out in order to display the scores and sum
+ * of score for each Vehicle.
+ * 
+ * 
+ * @author Saqib Kayani
+ *
+ */
 public class Vehicles {
 
 	private String vehicleName;
@@ -11,6 +24,7 @@ public class Vehicles {
 	private double score;
 	private double sumOfScores;
 	
+	/** First letter of the sipp code. */
 	private enum List1{
 		M ("Mini"),
 		E ("Economy"),
@@ -40,6 +54,7 @@ public class Vehicles {
 			return false;
 		} 
 	}
+	/** Second letter of the sipp code. */
 	private enum List2{
 		B ("2 doors"),
 		C ("4 doors"),
@@ -68,6 +83,7 @@ public class Vehicles {
 			return false;
 		} 
 	}
+	/** Third letter of the sipp code. */
 	private enum List3{
 		M ("Manual"),
 		A ("Automatic");
@@ -90,6 +106,7 @@ public class Vehicles {
 			return false;
 		} 
 	}
+	/** Fourth letter of the sipp code. */
 	private enum List4{
 		N ("Petrol/no AC"),
 		R ("Petrol/AC");
@@ -114,8 +131,7 @@ public class Vehicles {
 	}
 	
 	
-	/* Default Constructor*/
-	
+	/** Default Constructor*/
 	public Vehicles(){
 		super();
 		vehicleName = "";
@@ -133,6 +149,10 @@ public class Vehicles {
 		
 	}
 	
+	/** 
+	 * Constructor for setting each of the values excluding the values of the specifications retrieved
+	 * by the sipp code. 
+	 */
 	public Vehicles(String vehicleName, String sIPP, double price, String supplier
 			,double rating){
 		super();
@@ -149,7 +169,6 @@ public class Vehicles {
 		setScore(0);
 		setSumOfScores(0);
 	}
-	
 	
 	/**
 	 * Calculates the specifications of each vehicle based on the the sipp code provided.
@@ -211,98 +230,170 @@ public class Vehicles {
 		}
 	}
 
+	/**
+	 * @return name of vehicle.
+	 */
 	public String getVehicleName() {
 		return vehicleName;
 	}
-
-	private void setVehicleName(String vehicleName) {
-		this.vehicleName = vehicleName;
-	}
-
+	
+	/**
+	 * @return sipp code.
+	 */
 	public String getsIPP() {
 		return sIPP;
 	}
 
-	private void setsIPP(String sIPP) {
-		this.sIPP = sIPP;
-	}
-
+	/**
+	 * @return price of vehicle.
+	 */
 	public double getPrice() {
 		return price;
 	}
-
-	private void setPrice(double price) {
-		this.price = price;
-	}
-
+	
+	/**
+	 * @return name of supplier.
+	 */
 	public String getSupplier() {
 		return supplier;
 	}
 
-	private void setSupplier(String supplier) {
-		this.supplier = supplier;
-	}
-
+	/**
+	 * @return the rating for the vehicle.
+	 */
 	public double getRating() {
 		return rating;
 	}
 
-	private void setRating(double rating) {
-		this.rating = rating;
-	}
-
+	/**
+	 * @return boolean value for whether the vehicle has AC or not.
+	 */
 	public boolean isAirCon() {
 		return airCon;
 	}
 
-	private void setAirCon(boolean airCon) {
-		this.airCon = airCon;
-	}
-
+	/**
+	 * @return the car type for the vehicle.
+	 */
 	public String getCarType() {
 		return carType;
 	}
 
-	private void setCarType(String carType) {
-		this.carType = carType;
-	}
-
+	/**
+	 * @return car type and number of doors.
+	 */
 	public String getCarTypeDoors() {
 		return carTypeDoors;
 	}
 
-	private void setCarTypeDoors(String carTypeDoors) {
-		this.carTypeDoors = carTypeDoors;
-	}
-
+	/**
+	 * @return the fuel type.
+	 */
 	public String getFuel() {
 		return fuel;
 	}
 
-	private void setFuel(String fuel) {
-		this.fuel = fuel;
-	}
-
+	/**
+	 * @return return vehicle transmission type.
+	 */
 	public String getTransmission() {
 		return transmission;
 	}
 
-	private void setTransmission(String transmission) {
-		this.transmission = transmission;
-	}
-
+	/**
+	 * @return the calculated score for the vehicle.
+	 */
 	public double getScore() {
 		return score;
 	}
 
-	public void setScore(double score) {
-		this.score = score;
-	}
-
+	/**
+	 * @return the calculated sum of scores combining the spec score and the supplier's score.
+	 */
 	public double getSumOfScores() {
 		return sumOfScores;
 	}
 
+	/** 
+	 * Private method for setting the Vehicle Name. 
+	 */
+	private void setVehicleName(String vehicleName) {
+		this.vehicleName = vehicleName;
+	}
+	
+	/** 
+	 * Private method for setting the Sipp Code. 
+	 */
+	private void setsIPP(String sIPP) {
+		this.sIPP = sIPP;
+	}
+	
+	/** 
+	 * Private method for setting the Vehicle's Price. 
+	 */
+	private void setPrice(double price) {
+		this.price = price;
+	}
+	
+	/** 
+	 * Private method for setting the Vehicle's Supplier. 
+	 */
+	private void setSupplier(String supplier) {
+		this.supplier = supplier;
+	}
+	
+	/** 
+	 * Private method for setting the Supplier's Rating for the Vehicle. 
+	 */
+	private void setRating(double rating) {
+		this.rating = rating;
+	}
+	
+	/** 
+	 * Private method for setting the Vehicle's AC value as boolean. 
+	 */
+	private void setAirCon(boolean airCon) {
+		this.airCon = airCon;
+	}
+	
+	/** 
+	 * Private method for setting the Vehicle's Car Type. 
+	 */
+	private void setCarType(String carType) {
+		this.carType = carType;
+	}
+	
+	/** 
+	 * Private method for setting the Vehicle's Car Type/Doors. 
+	 */
+	private void setCarTypeDoors(String carTypeDoors) {
+		this.carTypeDoors = carTypeDoors;
+	}
+	
+	/** 
+	 * Private method for setting the Vehicle's Fuel Type. 
+	 */
+	private void setFuel(String fuel) {
+		this.fuel = fuel;
+	}
+	
+	/** 
+	 * Private method for setting the Vehicle's Transmission Type. 
+	 */
+	private void setTransmission(String transmission) {
+		this.transmission = transmission;
+	}
+	
+	/** 
+	 * Private method for setting the Vehicle's calculated Score. 
+	 */
+	public void setScore(double score) {
+		this.score = score;
+	}
+	
+	/** 
+	 * Private method for setting the Vehicle's Sum of calculated Score and Supplier's score. 
+	 */
 	public void setSumOfScores(double sumOfScores) {
 		this.sumOfScores = sumOfScores;
 	}
