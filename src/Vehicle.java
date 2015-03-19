@@ -12,7 +12,7 @@
  * @author Saqib Kayani
  *
  */
-public class Vehicles {
+public class Vehicle {
 
 	private String vehicleName;
 	private String sIPP;
@@ -132,7 +132,7 @@ public class Vehicles {
 	
 	
 	/** Default Constructor*/
-	public Vehicles(){
+	public Vehicle(){
 		super();
 		vehicleName = "";
 		sIPP = "";
@@ -153,7 +153,7 @@ public class Vehicles {
 	 * Constructor for setting each of the values excluding the values of the specifications retrieved
 	 * by the sipp code. 
 	 */
-	public Vehicles(String vehicleName, String sIPP, double price, String supplier
+	public Vehicle(String vehicleName, String sIPP, double price, String supplier
 			,double rating){
 		super();
 		setVehicleName(vehicleName);
